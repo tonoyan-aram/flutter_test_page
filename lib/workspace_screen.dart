@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'search_input.dart';
@@ -49,29 +48,31 @@ class WorkspacesScreen extends StatelessWidget {
               // fontSize: 18,
             )),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.only(bottom: 8.0),
-              child: SearchInput(),
-            ),
-            Expanded(
-              child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 2,
-                  crossAxisSpacing: 4.0,
-                  mainAxisSpacing: 4.0,
-                ),
-                itemCount: workspaces.length,
-                itemBuilder: (context, index) {
-                  return WorkspaceCard(workspaces[index], () {});
-                },
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(bottom: 8.0),
+                child: SearchInput(),
               ),
-            ),
-          ],
+              Expanded(
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 1.8,
+                    crossAxisSpacing: 4.0,
+                    mainAxisSpacing: 4.0,
+                  ),
+                  itemCount: workspaces.length,
+                  itemBuilder: (context, index) {
+                    return WorkspaceCard(workspaces[index], () {});
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
